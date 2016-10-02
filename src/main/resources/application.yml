@@ -6,8 +6,10 @@ spring.jmx:
    enabled: false
 
 spring.datasource:
-    driverClassName: org.h2.Driver
-    url: jdbc:h2:mem:bootexample;MODE=MySQL
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test;MODE=MySQL
+    username:
+    password:
 
 
 server:
@@ -49,4 +51,4 @@ spring:
   profiles: dev
 
 spring.jpa:
-    hibernate.ddl-auto: create-drop
+    hibernate.ddl-auto: none
