@@ -1,1 +1,5 @@
 /build/
+pom.xml
+.idea
+target
+
