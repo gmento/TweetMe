@@ -6,14 +6,21 @@ spring.jmx:
    enabled: false
 
 spring.datasource:
+    #driverClassName: org.h2.Driver
+    #url: jdbc:h2:mem:bootexample;MODE=MySQL
+    
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/test;MODE=MySQL
-    username:
-    password:
+    url: jdbc:mysql://127.0.0.1:3306/twitter
+    username: tweeter
+    password: tweeter
+
 
 
 server:
   port: 8090
+#configure session timeout
+  session:
+    timeout: 100
 
 #todo: make sure to always enable security in production
 security:
@@ -38,6 +45,7 @@ info:
     description: ${project.description}
     version: ${project.version}
 
+
 hotel.service:
   name: 'default profile:'
 
@@ -46,9 +54,15 @@ spring:
   h2:
     console:
       enabled: true
+#  jpa:
+#    hibernate:
+#      naming:
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
 ---
 spring:
   profiles: dev
+  
 
 spring.jpa:
     hibernate.ddl-auto: none

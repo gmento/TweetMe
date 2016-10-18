@@ -1,16 +1,21 @@
 package com.tweetme.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "UserProfile")
+@Table(name = "userprofile")
 public class UserProfile {
 
     @Id
+    @Column(name = "id_user")
     @GeneratedValue()
     private long id;
 
@@ -25,6 +30,10 @@ public class UserProfile {
 
     @Column
     private String email;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_address")
+    private Address address;
 
     public long getId() {
         return id;
@@ -65,5 +74,13 @@ public class UserProfile {
     public void setEmail(String email) {
         this.email = email;
     }
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 }

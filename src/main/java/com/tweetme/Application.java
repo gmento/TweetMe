@@ -1,6 +1,8 @@
 package com.tweetme;
 
 import com.mangofactory.swagger.plugin.EnableSwagger;
+import com.tweet.security.SecurityConfig;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -8,6 +10,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /*
@@ -19,6 +22,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories("com.tweetme.jpa")
 // To segregate MongoDB and JPA repositories. Otherwise not needed.
 @EnableSwagger // auto generation of API docs
+@Import({ SecurityConfig.class })
 public class Application extends SpringBootServletInitializer {
 
     private static final Class<Application> applicationClass = Application.class;

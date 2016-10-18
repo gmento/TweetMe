@@ -44,6 +44,16 @@ public abstract class AbstractRestHandler implements ApplicationEventPublisherAw
 
         return new RestErrorInfo(ex, "You messed up.");
     }
+    
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public
+    @ResponseBody
+    RestErrorInfo handleUnAuthorized(ResourceNotFoundException ex, WebRequest request, HttpServletResponse response) {
+        log.info("ResourceNotFoundException handler:" + ex.getMessage());
+
+        return new RestErrorInfo(ex, "Sorry you are not authorized to access this page.");
+    }
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(ResourceNotFoundException.class)

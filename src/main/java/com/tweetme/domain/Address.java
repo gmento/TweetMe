@@ -7,16 +7,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Address")
+@Table(name = "address")
 public class Address {
 
     @Id
     @GeneratedValue()
-    private long id;
+    @Column(name ="id_address")
+    private long idAddress;
 
     @Column()
-    private String address;
+    private String address1;
+    
+    @Column()
+    private String address2;
 
+    
     @Column()
     private String city;
 
@@ -26,22 +31,30 @@ public class Address {
     @Column()
     private String country;
 
-    public long getId() {
-        return id;
+    public long getidAddress() {
+        return idAddress;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setidAddress(long idAddress) {
+        this.idAddress = idAddress;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddress1() {
+        return address1;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress1(String address1) {
+        this.address1 = address1;
     }
 
+    public String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        this.address1 = address2;
+    }
+    
     public String getCity() {
         return city;
     }

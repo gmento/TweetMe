@@ -31,15 +31,15 @@ public class AddressService {
         return addressRepository.save(address);
     }
 
-    public Address getAddressById(Integer id) {
-        return addressRepository.findOne(id);
+    public Address getAddressById(Integer idAddress) {
+        return addressRepository.findOne(idAddress);
     }
 
     public void updateAddress(Address address) {
         addressRepository.save(address);
     }
 
-    public void deleteAddress(Integer id) {
-        addressRepository.delete(id);
+    public void deleteAddress(Integer idAddress) {
+        addressRepository.delete(idAddress);
     }
 }

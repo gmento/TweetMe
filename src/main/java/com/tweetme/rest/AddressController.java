@@ -5,6 +5,7 @@ import com.tweetme.domain.Address;
 import com.tweetme.service.AddressService;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+
 import java.net.URI;
 import java.util.List;
 
@@ -36,6 +38,7 @@ public class AddressController extends AbstractRestHandler {
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Create a hotel resource.", notes = "Returns the URL of the new resource in the Location header.")
     public List<Address> getAddresses() {
+    	System.out.print("qui ci sono");
         return addressService.getAddress();
     }
 
@@ -51,7 +54,7 @@ public class AddressController extends AbstractRestHandler {
         final HttpHeaders headers = new HttpHeaders();
         final URI locationUri = ServletUriComponentsBuilder
                 .fromCurrentServletMapping().path("/api/v1/address/")
-                .path(String.valueOf(savedAddress.getId()))
+                .path(String.valueOf(savedAddress.getidAddress()))
                 .build()
                 .toUri();
 
