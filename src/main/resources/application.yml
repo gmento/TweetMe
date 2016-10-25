@@ -19,8 +19,8 @@ spring.datasource:
 server:
   port: 8090
 #configure session timeout
-  session:
-    timeout: 100
+#  session:
+#    timeout: 100
 
 #todo: make sure to always enable security in production
 security:
