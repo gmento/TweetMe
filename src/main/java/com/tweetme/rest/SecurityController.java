@@ -22,19 +22,21 @@ public class SecurityController {
 	    return user;
 	  }
 
-	  @RequestMapping(value="/logout", method = RequestMethod.GET)
-	    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
-	        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	        if (auth != null){    
-	            new SecurityContextLogoutHandler().logout(request, response, auth);
-	        }
-	        try {
-				response.sendRedirect("index.html");
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	        return "redirect://index.html";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
-	    }
+//	  @RequestMapping(value="/logout", method = RequestMethod.GET)
+//	    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+//	        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//	        if (auth != null){
+//	        	System.out.println("auth presente");
+//	            new SecurityContextLogoutHandler().logout(request, response, auth);
+//	        }
+//	        try {
+//				response.sendRedirect("index.html");
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//	        System.out.println("Log out successfully completed.");
+//	        return "redirect://index.html";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
+//	    }
 
 }

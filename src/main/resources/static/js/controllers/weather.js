@@ -7,7 +7,20 @@ angular.module('app').controller("weather-ctr", function($scope, $http) {
   var url = "http://api.openweathermap.org/data/2.5/weather?q=" +$scope.citta +"&appid="+code+"&units=metric&lang=it";
   //var url = "api.openweathermap.org/data/2.5/weather?lat=" + GeoPosition.lat; + "&lon=" + GeoPosition.lng + "&appid="+code+"&units=metric&lang=it";
 	console.log("function wheater:" + url);
-	 $http.get(url)
+	 
+	
+	//$http.defaults.headers.common["X-Requested-With"] ="XMLHttpRequest";
+	//this line delete the X-Requested-With condition, no requested by openweather.com.
+	//this header line is sent to identify the JQUERY request
+	delete $http.defaults.headers.common["X-Requested-With"];
+	
+	var req ={
+			 method: 'GET',
+			 url : url
+			 };
+	
+	
+	 $http(req)
 		.then(function(response) {
 	      //First function handles success
 	      $scope.content = response.data;

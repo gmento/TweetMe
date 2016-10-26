@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.tweetme.filters.CsrfHeaderFilter;
 
@@ -31,15 +32,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //			.formLogin();
 		//A custom login form
 	//			.loginPage("/web/login").failureUrl("/login")
-		http
-        .authorizeRequests()
-          .antMatchers("/index.html", "/home.html", "/login/**", "/js/**","/styles/**").permitAll()
-          .anyRequest().authenticated()
-        .and()
-        	.httpBasic()
-        .and()
-        	.addFilterBefore(new CsrfHeaderFilter(), CsrfFilter.class);
+		http.httpBasic();
 		
+		http.authorizeRequests()
+          	.antMatchers("/index.html", "/red_login.html", "/home.html", "/login/**", "/js/**","/styles/**","/user").permitAll()
+          	.anyRequest().authenticated();
+
+		http.csrf()
+			.csrfTokenRepository(csrfTokenRepository()).and()
+			.addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class);
+		
+		http.logout()
+		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+		.logoutSuccessUrl("/index.html").deleteCookies("JSESSIONID")
+		.invalidateHttpSession(true);
 		
 	}
 

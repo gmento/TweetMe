@@ -52,7 +52,7 @@ public class Address {
     }
 
     public void setAddress2(String address2) {
-        this.address1 = address2;
+        this.address2 = address2;
     }
     
     public String getCity() {

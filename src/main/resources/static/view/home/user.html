@@ -1,5 +1,5 @@
 
-<div ng-app="UserProfile">
+
 
 <hr>
 
@@ -65,7 +65,7 @@
 				<div class="card" ng-controller="userdataCtr">
 					<div class="header"><h4 class="title">Edit Profile</h4></div>
 				<div class="content">
-				<form ng-submit="update_userprofile()">
+				<form ng-submit="update_userprofile()" ng-controller="userupdateCtr">
 					<div class="row">
 					<div class="col-md-5">
                     	<div class="form-group">
@@ -82,7 +82,7 @@
 					<div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control border-input" placeholder="Email">
+                                    <input type="email" class="form-control border-input" placeholder="Email" ng-model="userprofile.email">
                                 </div>
 					</div>
 					</div>
@@ -91,13 +91,13 @@
 						<div class="col-md-6">
                            <div class="form-group">
                               <label>First Name</label>
-                              <input type="text" class="form-control border-input" placeholder="Company" value="{{userprofile.name}}">
+                              <input type="text" class="form-control border-input" placeholder="Company" ng-model="userprofile.name">
                            </div>
 						</div>
 						<div class="col-md-6">
                                 <div class="form-group">
                                     <label>Last Name</label>
-                                    <input type="text" class="form-control border-input" placeholder="Last Name" value="{{userprofile.surname}}">
+                                    <input type="text" class="form-control border-input" placeholder="Last Name" ng-model="userprofile.surname">
                                 </div>
                             </div>
 					</div>
@@ -106,7 +106,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Address</label>
-                                    <input type="text" class="form-control border-input" placeholder="Home Address" value="{{userprofile.address.address1}}">
+                                    <input type="text" class="form-control border-input" placeholder="Home Address" ng-model="userprofile.address.address1">
                                 </div>
                             </div>
 					</div>
@@ -115,19 +115,19 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>City</label>
-                                    <input type="text" class="form-control border-input" placeholder="City" value="{{userprofile.address.city}}">
+                                    <input type="text" class="form-control border-input" placeholder="City" ng-model="userprofile.address.city">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Country</label>
-                                    <input type="text" class="form-control border-input" placeholder="Country" value="{{userprofile.address.country}}">
+                                    <input type="text" class="form-control border-input" placeholder="Country" ng-model="userprofile.address.country">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Postal Code</label>
-                                    <input type="text" class="form-control border-input" placeholder="ZIP Code" value="{{userprofile.address.cap}}">
+                                    <input type="text" class="form-control border-input" placeholder="ZIP Code" ng-model="userprofile.address.cap">
                                 </div>
                             </div>
 					</div>
@@ -149,6 +149,7 @@
                      </div>
                      <div class="clearfix"></div>
              </form>
+             <p>TEST: {{userprofile.name}}</p>
 			</div>
 		</div>
 	</div>
@@ -157,4 +158,3 @@
             </div>
         </div>
 	</div>
-</div>

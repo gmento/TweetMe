@@ -1,4 +1,4 @@
-angular.module('app').controller("userdataCtr", function($scope, $http, httpHeader) {
+angular.module('app').controller("userdataCtr", function($scope, $http) {
 //preparing data for the User profile
 	
 	 var url = "http://localhost:8090/api/v1/userprofile";
@@ -22,17 +22,32 @@ angular.module('app').controller("userdataCtr", function($scope, $http, httpHead
 	      console.log("Something went wrong with the user profile");	 
 			});
 	 
+	
+	 
+});
+
+
+/**
+
+*/
+
+angular.module('app').controller("userupdateCtr", function($scope, $http) {
+	
+	 var url = "http://localhost:8090/api/v1/userprofile";
 	 //update user profile data  
 	 $scope.update_userprofile = function(){
+		 //$scope.$apply();
 		 console.log("trying update data");
 		 
-		 console.log(httpHeader.header);
+
+		 console.log($scope.userprofile);
 		 
-		 $http.put(url, $scope.user)
+		 $http.put(url, $scope.userprofile)
 			.then(function(response) {
 		      //First function handles success
-		      $scope.userprofile = response.data;
-		      console.log("update successfully completed!");
+		      //$scope.userprofile = response.data;
+		      console.log("update successfully completed:");
+		      console.log($scope.userprofile);
 		      //return "";
 		  	}, function(response) {
 		      //Second function handles error
@@ -41,5 +56,4 @@ angular.module('app').controller("userdataCtr", function($scope, $http, httpHead
 		 
 		 
 	 };
-	 
 });

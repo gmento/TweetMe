@@ -19,7 +19,7 @@ angular.module('app').controller("BodyCrl", function($scope) {
         };
         
         $scope.templateUrl = function() {
-        	demo.initChartist();
+        	//demo.initChartist();
         	return $scope.webpage;
             
           }

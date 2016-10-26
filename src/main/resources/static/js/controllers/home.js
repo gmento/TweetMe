@@ -15,4 +15,11 @@ angular.module('app').controller('home_crl', function($rootScope, $http, $scope,
 	//$scope.user.authority = UserInfo.data.authority;
 	console.log("A.userInfo:"+ $scope.user);
 	//demo.initChartist();
-})
+});
+
+/**
+ * Redirect to login
+ */
+angular.module('app').controller('redHome_crl', function(){
+window.location = "login/login.html"
+});

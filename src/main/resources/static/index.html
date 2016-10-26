@@ -1,11 +1,9 @@
 <!doctype html>
 <html>
 <head>
-<title>Hello AngularJS</title>
-  
-
-
-<meta charset="utf-8" />
+	<title>Hello AngularJS</title>
+	
+	<meta charset="utf-8" />
 	<link rel="apple-touch-icon" sizes="76x76" href="styles/img/apple-icon.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="styles/img/favicon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -17,24 +15,28 @@
 
     <!-- Bootstrap core CSS     -->
     <link href="styles/css/bootstrap.min.css" rel="stylesheet" />
+    
     <!-- Animation library for notifications   -->
     <link href="styles/css/animate.min.css" rel="stylesheet"/>
+    
     <!--  Paper Dashboard core CSS    -->
     <link href="styles/css/paper-dashboard.css" rel="stylesheet"/>
+    
+    <!--  <link href="styles/css/chartist.min.css" rel="stylesheet"/>-->
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="styles/css/demo.css" rel="stylesheet" />
+    
     <!--  Fonts and icons     -->
      <link href="styles/css/themify-icons.css" rel="stylesheet">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,300" rel="stylesheet" type='text/css'>
    
-
-
 </head>
 
 <body ng-app="app" ng-cloak class="ng-cloak">
-	
-	<div ng-view class="container"></div>
+
+
+<div ng-view ></div>
 
 <script src="styles/js/angular1.3.min.js"></script>
 <script src="styles/js/angular-route.min.js"></script>
@@ -54,8 +56,9 @@ app.config(function($routeProvider, $httpProvider) {
 		templateUrl : 'view/home2.html',
 		controller : 'home_crl'
 	}).when('/login', {
-		templateUrl : 'login/login.html',
-		controller : 'login_crl'
+		templateUrl : 'red_login.html',
+		controller: 'redHome_crl'
+		//controller : 'login_crl'
 	}).when('/home', {
 		templateUrl : 'view/home2.html',
 		controller : 'home_crl'
@@ -66,7 +69,7 @@ app.config(function($routeProvider, $httpProvider) {
 });
 </script>
 	
-	<script src="login/js/index.js"></script>
+	
 	<script src="js/controllers/home.js"></script>
 	<script src="js/controllers/weather.js"></script>
 	<script src="js/controllers/userprofile.js"></script>
@@ -91,12 +94,12 @@ app.config(function($routeProvider, $httpProvider) {
     <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 	<script src="styles/js/paper-dashboard.js"></script>
 
-	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-	<script src="styles/js/demo.js"></script>
+	<!-- Paper Dashboard DEMO methods, don't include it in your project! 
+	<script src="styles/js/demo.js"></script> -->
 	<script type="text/javascript">
     	$(document).ready(function(){
 
-        	demo.initChartist();
+        	//demo.initChartist();
 
         	$.notify({
             	icon: 'ti-gift',

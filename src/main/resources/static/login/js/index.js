@@ -2,7 +2,9 @@
     ANGULAR JS LOGIN
 \*------------------------------------*/
 
-angular.module('app').controller('login_crl', function($rootScope, $http, $scope, $location, httpHeader ){
+
+angular.module('login', []);
+angular.module('login').controller('login_crl', function($rootScope, $http, $scope, $location ){
 	
 	$scope.credentials = {username:"",password:""};
 	//creating the header from the login
@@ -19,15 +21,15 @@ angular.module('app').controller('login_crl', function($rootScope, $http, $scope
 		
 		var headers = $scope.credentials ? {authorization : "Basic " + btoa($scope.credentials.username + ":" + $scope.credentials.password)} : {};
 		
-		httpHeader.header=headers;
-		
 		console.log("header:"+ headers.authorization);
 		
 		$http.get('/user', {headers : headers}).success(function(data) {
+		//$http.get('/user').success(function(data) {
 		      if (data.name) {
 		        $rootScope.authenticated = true;
 		        console.log("Loggato on id:"+ data.name);
-		        $location.path("/home");
+		        //$location.path("/home");
+		        window.location = "/index.html"
 		      } else {
 		        $rootScope.authenticated = false;
 		        console.log("Errore"+data);

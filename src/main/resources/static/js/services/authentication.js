@@ -29,7 +29,3 @@ angular.module('app').service('authInterceptor', function($q,$location) {
         return $q.reject(response);
     };
 });
-
-angular.module('app').service('httpHeader', function() {
-    var header = "";
-})

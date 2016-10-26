@@ -35,6 +35,8 @@ public class UserProfile {
     @JoinColumn(name="id_address")
     private Address address;
 
+    //gets & sets
+    
     public long getId() {
         return id;
     }
